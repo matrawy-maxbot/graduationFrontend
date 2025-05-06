@@ -1,0 +1,208 @@
+/* Assignments Styles */
+.assignments-container {
+     padding: 2rem;
+ }
+ 
+ .course-section {
+     background: #ffffff;
+     border-radius: 1rem;
+     padding: 1.5rem;
+     margin-bottom: 2rem;
+     box-shadow: -1px 1px 15px rgb(0 0 0 / 20%);
+ }
+ 
+ .course-header-title {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     color: #374966;
+     font-size: 1.25rem;
+     margin-bottom: 1.5rem;
+ }
+ 
+ .course-header-title span {
+     color: #848a93;
+ }
+ 
+ .course-header-title svg {
+     width: 1.5rem;
+     height: 1.5rem;
+     color: #64748b;
+     fill: #64748b;
+ }
+ 
+ .assignment-card {
+     position: relative;
+     background: #e7e9eb;
+     border-radius: 0.75rem;
+     padding: 1.25rem;
+     padding-right: 7rem;
+     margin-bottom: 1rem;
+     border: 1px solid #dfe1e6;
+     box-shadow: -3px 4px 15px rgb(0 0 0 / 15%);
+     overflow: hidden;
+     cursor: pointer;
+ }
+ 
+ .assignment-title {
+     font-size: 1.1rem;
+     color: #1f2937;
+     margin-bottom: 1rem;
+     font-weight: 500;
+ }
+ 
+ .assignment-title svg {
+     height: 1.3rem;
+     padding: 0 0.25rem;
+     margin-right: 0.4rem;
+     transform: translateY(0.25rem);
+ }
+ 
+ .assignment-meta {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+ 
+ .assignment-author {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+ }
+
+ .author-avatar {
+     width: 1.75rem;
+     height: 1.75rem;
+     border-radius: 50%;
+ }
+ 
+ .author-info {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     font-size: 0.875rem;
+ }
+ 
+ .author-name {
+     color: #61748e;
+     font-weight: 500;
+ }
+ 
+ .created-at {
+     color: #3b76d6;
+     font-weight: 500;
+ }
+ 
+ .assignment-status {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+ }
+ 
+ .status-badge {
+     font-size: 0.875rem;
+     font-weight: 500;
+ }
+ 
+ .status-badge.active {
+     color: #dc2626;
+ }
+ 
+ .status-badge.submitted {
+     color: #ca8a04;
+ }
+ 
+ .status-badge.completed {
+     color: #16a34a;
+ }
+ 
+ .status-badge.missing {
+     color: #6b7280;
+ }
+ 
+ .time-left, .finished {
+     position: absolute;
+     display: flex;
+     width: fit-content;
+     align-items: center;
+     gap: 0.5rem;
+     color: #be9800;
+     font-size: 0.875rem;
+     flex-direction: column;
+     flex-wrap: nowrap;
+     justify-content: center;
+     right: 0;
+     top: 50%;
+     transform: translateY(-50%);
+     padding: 0 1.5rem;
+     width: 150px;
+     text-align: center;
+ }
+ 
+ .time-left.active-time {
+     color: #8b4137;
+ }
+ 
+ .time-left.active-time svg  {
+     fill: #8b4137;
+ }
+ 
+ .time-left svg  {
+     fill: #866b00;
+ }
+ 
+ .finished svg {
+     color: #6b7280;
+ }
+ 
+ .finished {
+     color: #6b7280;
+ }
+ 
+ .time-left svg, .finished svg {
+     width: 2rem;
+     opacity: 0.7;
+ }
+ 
+ .time-left .time-left-text, .finished .time-left-text {
+     font-weight: 600;
+ }
+ 
+ .dot-separator {
+     color: #94a3b8;
+     transform: translateY(0.15rem);
+ }
+ 
+ .status-badge.active + .assignment-meta::before {
+     content: "";
+     position: absolute;
+     left: 0;
+     top: 0;
+     height: 100%;
+     width: 4px;
+     background: linear-gradient(to bottom, #dc2626 30%, transparent);
+     border-top-left-radius: 0.75rem;
+     border-bottom-left-radius: 0.75rem;
+ }
+ 
+ @keyframes progress {
+     from {
+         width: 0;
+     }
+     to {
+         width: var(--progress);
+     }
+ }
+ 
+ .assignment-card:has(.status-badge.active)::after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 3px;
+     background-color: rgb(0 0 0 / 62%);
+     border-radius: 10px;
+     --progress: calc(var(--data-progress, 60) * 1%);
+     width: var(--progress);
+     animation: progress 1s ease-out;
+ }
