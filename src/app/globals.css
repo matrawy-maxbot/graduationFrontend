@@ -155,7 +155,7 @@ button .sidebar[data-state="collapsed"] .user-info,
   padding-right: 0;
 }
 
-.sidebar[data-state="collapsed"] .menu-button.main {
+.sidebar[data-state="collapsed"] .menu-button.main, .sidebar[data-state="collapsed"] .menu-button.inbox {
   padding-left: 0;
 }
 
@@ -188,6 +188,7 @@ button .sidebar[data-state="collapsed"] .user-info,
   width: 100%;
   flex-direction: column;
   background-color: var(--sidebar-background);
+  gap: 0.25rem;
 }
 
 .sidebar-header {
@@ -204,7 +205,7 @@ button .sidebar[data-state="collapsed"] .user-info,
   width: 100%;
   min-width: 0;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.85rem;
 }
 
 .menu-button {
@@ -224,6 +225,8 @@ button .sidebar[data-state="collapsed"] .user-info,
   font-size: 0.875rem;
   opacity: 0.85;
   transition: opacity 0.25s, background-color 150ms, padding 200ms;
+  text-decoration: none;
+  color: inherit;
 }
 
 .menu-button.main {
@@ -637,7 +640,7 @@ button .sidebar[data-state="collapsed"] .user-info,
   height: 1rem;
   flex-shrink: 0;
   opacity: 0.7;
-  stroke: #000000;
+  stroke: #03293f;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -657,6 +660,12 @@ button .sidebar[data-state="collapsed"] .user-info,
 
 .menu-button span {
   color: #1e293b;
+}
+
+.menu-item .menu-button span {
+  color: #0c4a6e;
+  font-family: 'DM Sans';
+  font-weight: 600;
 }
 
 /* Account Dropdown Styles */
