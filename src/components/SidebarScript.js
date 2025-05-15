@@ -143,28 +143,28 @@ export default function SidebarScript() {
       });
     }
 
-    // Tab switching functionality
-    const tabs = document.querySelectorAll('.tab');
-    const newTabs = [];
+    // // Tab switching functionality
+    // const tabs = document.querySelectorAll('.tab');
+    // const newTabs = [];
 
-    tabs.forEach(tab => {
-      if (tab && tab.parentNode) {
-        const newTab = tab.cloneNode(true);
-        tab.parentNode.replaceChild(newTab, tab);
-        newTabs.push(newTab);
+    // tabs.forEach(tab => {
+    //   if (tab && tab.parentNode) {
+    //     const newTab = tab.cloneNode(true);
+    //     tab.parentNode.replaceChild(newTab, tab);
+    //     newTabs.push(newTab);
         
-        newTab.addEventListener('click', () => {
-          // Remove active class from all tabs
-          newTabs.forEach(t => {
-            if (t) {
-              t.classList.remove('active');
-            }
-          });
-          // Add active class to clicked tab
-          newTab.classList.add('active');
-        });
-      }
-    });
+    //     newTab.addEventListener('click', () => {
+    //       // Remove active class from all tabs
+    //       newTabs.forEach(t => {
+    //         if (t) {
+    //           t.classList.remove('active');
+    //         }
+    //       });
+    //       // Add active class to clicked tab
+    //       newTab.classList.add('active');
+    //     });
+    //   }
+    // });
 
     // Account Dropdown Toggle
     const accountTrigger = document.getElementById('account-trigger');
