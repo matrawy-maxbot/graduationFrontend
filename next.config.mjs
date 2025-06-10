@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+<<<<<<< HEAD
     remotePatterns: [
       {
         protocol: 'http', // or 'https' if your localhost supports it
@@ -30,6 +31,9 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
+=======
+    domains: ['localhost', 'i.pravatar.cc'],
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   },
   reactStrictMode: false,
 };

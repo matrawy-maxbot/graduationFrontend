@@ -1,14 +1,25 @@
 /* Assignments Styles */
 .assignments-container {
      padding: 2rem;
+<<<<<<< HEAD
+=======
+     max-width: 1200px;
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
      margin: 0 auto;
 }
 
 .assignments-header {
+<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+=======
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 }
 
 .view-toggle {
@@ -626,6 +637,7 @@
   100% {
     background-position: -200% 0%;
   }
+<<<<<<< HEAD
 }
 
 /* Course Filter Styles */
@@ -1083,4 +1095,6 @@
   .course-button {
     width: 100%;
   }
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 }

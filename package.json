@@ -9,11 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^1.9.0",
     "chart.js": "^4.4.9",
     "cookies-next": "^4.3.0",
     "emoji": "^0.3.2",
     "joi": "^17.13.3",
+=======
+    "chart.js": "^4.4.9",
+    "emoji": "^0.3.2",
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18.3.1"

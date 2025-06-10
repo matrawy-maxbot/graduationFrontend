@@ -574,8 +574,12 @@ export default function Inbox() {
                                 subgroups: [
                                     { id: 'cs-lectures', name: 'Lectures', icon: 'lecture', unread: 2, lastMessage: 'Next lecture will cover neural networks', time: '10:30' },
                                     { id: 'cs-sections', name: 'Sections', icon: 'section', lastMessage: 'Assignment 3 solutions', time: '14:15' },
+<<<<<<< HEAD
                                     { id: 'cs-admin', name: 'Admin', icon: 'admin', unread: 3, lastMessage: 'Midterm grades released', time: '09:45' },
                                     { id: 'cs-public', name: 'Public Chat', icon: 'public', unread: 5, lastMessage: 'Has anyone started the final project?', time: '08:20' }
+=======
+                                    { id: 'cs-admin', name: 'Admin', icon: 'admin', unread: 3, lastMessage: 'Midterm grades released', time: '09:45' }
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
                                 ]
                             },
                             {
@@ -585,8 +589,12 @@ export default function Inbox() {
                                 subgroups: [
                                     { id: 'math-lectures', name: 'Lectures', icon: 'lecture', lastMessage: 'Chapter 5 material uploaded', time: '15:20' },
                                     { id: 'math-sections', name: 'Sections', icon: 'section', unread: 1, lastMessage: 'Tutorial session tomorrow', time: '11:50' },
+<<<<<<< HEAD
                                     { id: 'math-admin', name: 'Admin', icon: 'admin', lastMessage: 'Exam room announced', time: 'Yesterday' },
                                     { id: 'math-public', name: 'Public Chat', icon: 'public', unread: 2, lastMessage: 'Anyone want to form a study group?', time: '12:40' }
+=======
+                                    { id: 'math-admin', name: 'Admin', icon: 'admin', lastMessage: 'Exam room announced', time: 'Yesterday' }
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
                                 ]
                             },
                             {
@@ -596,8 +604,12 @@ export default function Inbox() {
                                 subgroups: [
                                     { id: 'phys-lectures', name: 'Lectures', icon: 'lecture', unread: 4, lastMessage: 'Lecture slides available', time: '16:05' },
                                     { id: 'phys-sections', name: 'Sections', icon: 'section', lastMessage: 'Lab report template', time: 'Today' },
+<<<<<<< HEAD
                                     { id: 'phys-admin', name: 'Admin', icon: 'admin', lastMessage: 'Course syllabus updated', time: 'Yesterday' },
                                     { id: 'phys-public', name: 'Public Chat', icon: 'public', unread: 0, lastMessage: 'Looking for a lab partner', time: '16:30' }
+=======
+                                    { id: 'phys-admin', name: 'Admin', icon: 'admin', lastMessage: 'Course syllabus updated', time: 'Yesterday' }
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
                                 ]
                             }
                         ].map((course) => (
@@ -638,6 +650,7 @@ export default function Inbox() {
                                                         <polyline points="17 11 19 13 23 9"></polyline>
                                                     </svg>
                                                 )}
+<<<<<<< HEAD
                                                 {subgroup.icon === 'public' && (
                                                     <svg className="subgroup-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                                         <circle cx="12" cy="12" r="10"></circle>
@@ -645,6 +658,8 @@ export default function Inbox() {
                                                         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                                                     </svg>
                                                 )}
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
                                             </div>
                                             <div className="channel-info subgroup-info">
                                                 <div className="channel-name">{subgroup.name}</div>

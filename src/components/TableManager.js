@@ -9,9 +9,12 @@ const TableManager = forwardRef(({
   rowsPerPage = 10, 
   searchColumn = 0,
   onDataChange,
+<<<<<<< HEAD
   onColumnRename,
   onColumnDelete,
   onColumnAdd,
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   initialData = [],
   tableRef,
   tableHeaders = [],
@@ -216,6 +219,7 @@ const TableManager = forwardRef(({
                   : col
               )
             );
+<<<<<<< HEAD
             
             // Notify parent component about column rename
             if (onColumnRename && newName !== column.label) {
@@ -223,6 +227,8 @@ const TableManager = forwardRef(({
                 onColumnRename(column.id, column.label, newName);
               }, 0);
             }
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
           }
           setEditingColumn(null);
         });
@@ -239,6 +245,7 @@ const TableManager = forwardRef(({
                     : col
                 )
               );
+<<<<<<< HEAD
               
               // Notify parent component about column rename
               if (onColumnRename && newName !== column.label) {
@@ -246,6 +253,8 @@ const TableManager = forwardRef(({
                   onColumnRename(column.id, column.label, newName);
                 }, 0);
               }
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
             }
             setEditingColumn(null);
           }
@@ -355,6 +364,7 @@ const TableManager = forwardRef(({
             } else {
               td.textContent = String(content);
             }
+<<<<<<< HEAD
           } else if (tableCellValuesHTML["*"]) {
             // Handle wildcard pattern for dynamic columns
             const content = tableCellValuesHTML["*"](row, column.id);
@@ -366,6 +376,8 @@ const TableManager = forwardRef(({
             } else {
               td.textContent = String(content);
             }
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
           } else {
             const value = row[column.id] || row[column.label] || '';
             td.textContent = String(value);
@@ -465,7 +477,12 @@ const TableManager = forwardRef(({
       if (editColumns) {
         const editTd = document.createElement('td');
         editTd.className = 'edit-row';
+<<<<<<< HEAD
         editTd.innerHTML = `          <div class="row-actions">
+=======
+        editTd.innerHTML = `
+          <div class="row-actions">
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
             <button class="action-button">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 20h9"></path>
@@ -539,6 +556,7 @@ const TableManager = forwardRef(({
 
   // Public methods
   const refreshTable = () => {
+<<<<<<< HEAD
     console.log("refreshTable called with columns:", columnsRef.current.length, "and data:", tableDataRef.current.length);
     
     // Ensure we have the latest columns and data
@@ -553,17 +571,24 @@ const TableManager = forwardRef(({
         console.log("Table re-rendered after refresh");
       }, 0);
     }
+=======
+    // console.log("refreshTable");
+    renderTable();
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   const updateTableData = (newData) => {
     console.log("updateTableData to :", newData);
     setTableData(newData);
     tableDataRef.current = newData;
+<<<<<<< HEAD
     
     // Re-render the table after data update
     setTimeout(() => {
       renderTable();
     }, 0);
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   // Public method to focus search input
@@ -612,6 +637,7 @@ const TableManager = forwardRef(({
     }, 1000);
   };
 
+<<<<<<< HEAD
   // Expose methods to the parent component
   useImperativeHandle(ref, () => ({
     refreshTable,
@@ -657,14 +683,36 @@ const TableManager = forwardRef(({
         return false;
       }
     }
+=======
+  // Expose methods through ref
+  useImperativeHandle(ref, () => ({
+    refreshTable,
+    updateTableData,
+    focusSearch,
+    clearSearch,
+    handleSearch,
+    updateTableData: (newData) => {
+      updateTableData(newData);
+    },
+    setCurrentPage,
+    setFilters
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   }));
 
   // Update originalData when initialData changes
   useEffect(() => {
+<<<<<<< HEAD
     if (initialData && initialData.length > 0) {
       updateTableData(initialData);
     }
   }, [initialData]); // Update when initialData changes
+=======
+    // Only update on mount
+    if (tableDataRef.current.length === 0) {
+      updateTableData(initialData);
+    }
+  }, []); // Empty dependency array means this only runs on mount
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 
   // Handle search functionality
   const handleSearch = (term) => {
@@ -763,7 +811,10 @@ const TableManager = forwardRef(({
 
   // Function to add a new column
   const addNewColumn = () => {
+<<<<<<< HEAD
     console.log("Adding new column");
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     // Generate a unique ID for the new column
     const newColumnId = `column_${Date.now()}`;
     const newColumn = {
@@ -785,6 +836,7 @@ const TableManager = forwardRef(({
       ...row,
       [newColumnId]: '' // Initialize with empty value
     }));
+<<<<<<< HEAD
     updateTableData(newTableData);
 
     // Force re-render of the table immediately
@@ -803,14 +855,24 @@ const TableManager = forwardRef(({
         onColumnAdd(newColumnId, newColumn.label);
       }, 0);
     }
+=======
+    console.log("newTableData", newTableData);
+    updateTableData(newTableData);
+
+    // Render the table with the new column
+    renderTable();
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   // Handle column deletion
   const handleColumnDelete = (columnId) => {
+<<<<<<< HEAD
     // Get the column details before deleting it
     const columnToDelete = columns.find(col => col.id === columnId);
     
     // Update columns state
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     const newColumns = columns.filter(col => col.id !== columnId);
     setColumns(newColumns);
     columnsRef.current = newColumns;
@@ -822,6 +884,7 @@ const TableManager = forwardRef(({
       return newRow;
     });
     updateTableData(newTableData);
+<<<<<<< HEAD
     
     // Force re-render of the table immediately
     setTimeout(() => {
@@ -834,14 +897,19 @@ const TableManager = forwardRef(({
         onColumnDelete(columnId, columnToDelete.label);
       }, 0);
     }
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   // Handle column name edit
   const handleColumnNameEdit = (columnId, newName) => {
+<<<<<<< HEAD
     // Get current column name before update
     const currentColumn = columns.find(col => col.id === columnId);
     const oldName = currentColumn ? currentColumn.label : '';
     
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     setColumns(prevColumns => {
       const newColumns = prevColumns.map(col => 
         col.id === columnId 
@@ -851,6 +919,7 @@ const TableManager = forwardRef(({
       columnsRef.current = newColumns;
       return newColumns;
     });
+<<<<<<< HEAD
     
     // Notify parent component about column rename
     if (onColumnRename && newName !== oldName) {
@@ -858,6 +927,8 @@ const TableManager = forwardRef(({
         onColumnRename(columnId, oldName, newName);
       }, 0);
     }
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   // Add event listeners for edit buttons
@@ -1025,4 +1096,8 @@ const TableManager = forwardRef(({
   return null;
 });
 
+<<<<<<< HEAD
 export default TableManager; 
+=======
+export default TableManager; 
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59

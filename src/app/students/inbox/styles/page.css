@@ -5103,6 +5103,7 @@ input:checked + .slider:before {
     color: #ff9100;
 }
 
+<<<<<<< HEAD
 .subgroup-item[data-icon="public"] .subgroup-avatar {
     background-color: rgba(83, 166, 244, 0.15);
 }
@@ -5111,6 +5112,8 @@ input:checked + .slider:before {
     color: #53A6F4;
 }
 
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 /* Pinned channel styles - Use high specificity to ensure border is always visible */
 .channels-list .channel-item.pinned {
     background-color: #f0f7ff;

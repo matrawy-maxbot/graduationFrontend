@@ -171,6 +171,7 @@ export function useChat() {
             unread: 0,
             isGroup: true,
             creationDate: '2023-01-15'
+<<<<<<< HEAD
         }],
         // Add Public Chat channels
         ['cs-public', {
@@ -202,6 +203,8 @@ export function useChat() {
             unread: 0,
             isGroup: true,
             creationDate: '2023-01-15'
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
         }]
     ]));
     const [originalDirectMessages, setOriginalDirectMessages] = useState(directMessages);
@@ -593,6 +596,7 @@ export function useChat() {
                         timestamp: '4:30 PM',
                         reactions: [{ emoji: '🎯', users: [{ id: 'user5', name: 'David Lee', avatar: 'https://i.pravatar.cc/150?img=7' }] }]
                     }
+<<<<<<< HEAD
                 ],
                 // Add Public Chat messages
                 'cs-public': [
@@ -696,6 +700,8 @@ export function useChat() {
                         timestamp: '4:50 PM',
                         reactions: [{ emoji: '👍', users: [{ id: 'user13', name: 'Taylor Smith', avatar: 'https://i.pravatar.cc/150?img=13' }] }]
                     }
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
                 ]
             };
             setMessages((defaultMessages[currentChat] || []).map(m => ({...m, reactions: m.reactions || [] })));

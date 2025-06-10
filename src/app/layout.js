@@ -5,7 +5,10 @@ import InteractiveSidebar from '@/components/InteractiveSidebar';
 import NavHandler from '@/components/NavHandler';
 import NavTabs from '@/components/NavTabs';
 import HeaderDropdownMenu from '@/components/HeaderDropdownMenu';
+<<<<<<< HEAD
 import AnnouncementsClient from '@/app/announcements/client';
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 
 export const metadata = {
   title: "Digital Collage Platform",
@@ -16,6 +19,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+<<<<<<< HEAD
+=======
+          
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
       </head>
       <body>
           <div className="group/sidebar-wrapper" style={{ "--sidebar-width": "16rem", "--sidebar-width-icon": "3rem" }}>
@@ -164,9 +171,12 @@ export default function RootLayout({ children }) {
           
           {/* إضافة مكون SidebarScript هنا */}
           <SidebarScript />
+<<<<<<< HEAD
           
           {/* مكون الإعلانات */}
           <AnnouncementsClient />
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
       </body>
     </html>
   );

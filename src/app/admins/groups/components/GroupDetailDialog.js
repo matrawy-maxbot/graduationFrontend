@@ -3,8 +3,11 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import Image from 'next/image';
 import '../styles/GroupDetailDialog.css';
+<<<<<<< HEAD
 import { getGroupMembers, updateGroup, deleteGroup, addMembersToGroup, removeMemberFromGroup } from '../api/groups.service';
 import { getAllUsers, getUserTypeText } from '../api/users.service';
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 
 const TABLE_HEADERS_CONFIG_AVAILABLE = [
   { id: "student", label: "Available People" },
@@ -32,10 +35,13 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
   const [people, setPeople] = useState([]);
   const [selectedPeopleIdsInternal, setSelectedPeopleIdsInternal] = useState(new Set());
   const [searchTerm, setSearchTerm] = useState('');
+<<<<<<< HEAD
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   const searchInputRef = useRef(null);
   
   // States for editing group name
@@ -46,16 +52,30 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
   // State for delete confirmation
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
+<<<<<<< HEAD
   // Define filter options
   const filters = ['All', 'Students', 'Doctors', 'Teaching Assistants', 'Admins'];
   
   // Define table headers
   const availableTableHeaders = TABLE_HEADERS_CONFIG_AVAILABLE;
   const selectedTableHeaders = TABLE_HEADERS_CONFIG_SELECTED;
+=======
+  // Dummy data for demonstration - replace with actual data source
+  const allPeople = [
+    { id: 1, name: 'John Doe', role: 'Student', avatar: 'https://i.pravatar.cc/150?img=1', status: 'Active' },
+    { id: 2, name: 'Jane Smith', role: 'Student', avatar: 'https://i.pravatar.cc/150?img=2', status: 'Pending' },
+    { id: 3, name: 'Dr. Mohamed Saleh', role: 'Doctor', avatar: 'https://i.pravatar.cc/150?img=3', status: 'Active' },
+    { id: 4, name: 'Eng. Huda Kamel', role: 'Teaching Assistant', avatar: 'https://i.pravatar.cc/150?img=4', status: 'Active' },
+    { id: 5, name: 'Ali Hassan', role: 'Admin', avatar: 'https://i.pravatar.cc/150?img=5', status: 'Inactive' },
+    { id: 6, name: 'Sarah Ibrahim', role: 'Student', avatar: 'https://i.pravatar.cc/150?img=6', status: 'Pending' },
+    { id: 7, name: 'Dr. Laila Rashid', role: 'Doctor', avatar: 'https://i.pravatar.cc/150?img=7', status: 'Active' },
+  ];
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 
   // Initialize data when dialog opens
   useEffect(() => {
     if (isOpen && groupData) {
+<<<<<<< HEAD
       setGroupName(groupData.title || '');
       setSelectedFilter('All');
       setSearchTerm('');
@@ -109,6 +129,22 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
       // تنفيذ الاستعلامات
       fetchAvailableUsers();
       fetchGroupMembers();
+=======
+      setPeople(allPeople);
+      setGroupName(groupData.title || '');
+      
+      // Initialize selected members from groupData
+      if (groupData.selectedMembers && groupData.selectedMembers.length > 0) {
+        const memberIds = new Set(groupData.selectedMembers.map(member => member.id));
+        setSelectedPeopleIdsInternal(memberIds);
+      } else {
+        setSelectedPeopleIdsInternal(new Set());
+      }
+      
+      // Reset edit mode when dialog opens
+      setIsEditingName(false);
+      setShowDeleteConfirm(false);
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     }
   }, [isOpen, groupData]);
   
@@ -126,9 +162,15 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
     }
     return people.filter(person => {
       if (selectedFilter === 'Students') return person.role === 'Student';
+<<<<<<< HEAD
       if (selectedFilter === 'Doctors') return person.role === 'Doctor' || person.role === 'Admin & Doctor';
       if (selectedFilter === 'Teaching Assistants') return person.role === 'Assistant';
       if (selectedFilter === 'Admins') return person.role === 'Admin' || person.role === 'Admin & Doctor';
+=======
+      if (selectedFilter === 'Doctors') return person.role === 'Doctor';
+      if (selectedFilter === 'Teaching Assistants') return person.role === 'Teaching Assistant';
+      if (selectedFilter === 'Admins') return person.role === 'Admin';
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
       return true;
     });
   }, [people, selectedFilter]);
@@ -154,6 +196,7 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
   }, [people, selectedPeopleIdsInternal]);
 
   // Handle adding a person to the group
+<<<<<<< HEAD
   const handleAddPerson = async (personId) => {
     try {
       setIsUpdating(true);
@@ -204,6 +247,19 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
   // Handle search term changes
   const handleSearchTermChange = (e) => {
     setSearchTerm(e.target.value);
+=======
+  const handleAddPerson = (personId) => {
+    setSelectedPeopleIdsInternal(prevSelectedIds => new Set(prevSelectedIds).add(personId));
+  };
+
+  // Handle removing a person from the group
+  const handleRemovePerson = (personId) => {
+    setSelectedPeopleIdsInternal(prevSelectedIds => {
+      const newSelectedIds = new Set(prevSelectedIds);
+      newSelectedIds.delete(personId);
+      return newSelectedIds;
+    });
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
   
   // Toggle between view and edit mode for group name
@@ -240,6 +296,7 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
   };
   
   // Handle confirm delete
+<<<<<<< HEAD
   const handleConfirmDelete = async () => {
     try {
       setIsDeleting(true);
@@ -299,10 +356,37 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
     } finally {
       setIsUpdating(false);
     }
+=======
+  const handleConfirmDelete = () => {
+    if (onGroupDelete && groupData) {
+      onGroupDelete(groupData.id);
+    }
+    onClose();
+  };
+
+  // Save group changes
+  const handleSaveChanges = () => {
+    if (onGroupUpdate && groupData) {
+      const updatedGroup = {
+        ...groupData,
+        title: groupName.trim() || groupData.title, // Use the edited name
+        membersCount: selectedPeopleIdsInternal.size,
+        selectedMembers: people.filter(person => selectedPeopleIdsInternal.has(person.id)),
+        lastEditAt: new Date().toLocaleString()
+      };
+      onGroupUpdate(updatedGroup);
+    }
+    onClose();
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   if (!isOpen || !groupData) return null;
 
+<<<<<<< HEAD
+=======
+  const filters = ['All', 'Students', 'Doctors', 'Teaching Assistants', 'Admins'];
+
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   // SVG for member icon
   const MemberIconSvg = () => (
     <svg className="member-icon-detail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.37 40">
@@ -329,6 +413,7 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
   );
 
   return (
+<<<<<<< HEAD
     <div className="detail-dialog-overlay">
       <div className="detail-dialog-content">
         <button className="close-button" onClick={onClose}>×</button>
@@ -339,11 +424,22 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
           {isEditingName ? (
             <input
               ref={groupNameInputRef}
+=======
+    <div className="dialog-overlay detail-dialog-overlay">
+      <div className="dialog-content detail-dialog-content dialog-content-two-tables">
+        <button className="close-button" onClick={onClose}>×</button>
+        
+        {/* Editable Group Title */}
+        <div className="group-title-container">
+          {isEditingName ? (
+            <input
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
               type="text"
               value={groupName}
               onChange={handleGroupNameChange}
               onKeyDown={handleGroupNameKeyDown}
               onBlur={() => setIsEditingName(false)}
+<<<<<<< HEAD
               className="group-name-input"
               aria-label="Group name"
             />
@@ -574,6 +670,195 @@ export default function GroupDetailDialog({ isOpen, onClose, groupData, onGroupU
           </div>
         </div>
       </div>
+=======
+              ref={groupNameInputRef}
+              className="group-title-input"
+              placeholder="Enter group name"
+              maxLength={50}
+            />
+          ) : (
+            <h2>{groupName || groupData.title}</h2>
+          )}
+          <button className="edit-title-button" onClick={toggleEditName} title={isEditingName ? "Save title" : "Edit title"}>
+            <EditIconSvg />
+          </button>
+        </div>
+        
+        {/* Group Information Section - Updated with modern styling */}
+        <div className="info-section-detail">
+          <h4>Group Details</h4>
+          <div className="details-grid">
+            <div className="detail-item">
+              <span className="detail-label">Created By</span>
+              <span className="detail-value author-detail">
+                <Image src={groupData.authorAvatar} alt={groupData.authorName} width={24} height={24} className="author-avatar-detail" />
+                {groupData.authorName}
+              </span>
+            </div>
+            <div className="detail-item">
+              <span className="detail-label">Created At</span>
+              <span className="detail-value date-value">{groupData.createdAt}</span>
+            </div>
+            {groupData.lastEditAt && (
+              <div className="detail-item">
+                <span className="detail-label">Last Edited</span>
+                <span className="detail-value date-value">{groupData.lastEditAt}</span>
+              </div>
+            )}
+            <div className="detail-item">
+              <span className="detail-label">Members</span>
+              <span className="detail-value members-detail">
+                <MemberIconSvg />
+                {selectedPeopleIdsInternal.size}
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Filter and Search Section */}
+        <div className="filter-list">
+          {filters.map(filter => (
+            <button 
+              key={filter} 
+              className={`filter-button ${selectedFilter === filter ? 'active' : ''}`}
+              onClick={() => setSelectedFilter(filter)}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+
+        <div className="form-group">
+          <input 
+            type="text" 
+            ref={searchInputRef} 
+            placeholder="Search available people..."
+            className="search-input-field"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+          />
+        </div>
+
+        {/* Two Tables Layout */}
+        <div className="two-tables-layout">
+          {/* Available People Table */}
+          <div className="table-section available-people-section">
+            <div className="people-table-container people-table-container-available">
+              <table>
+                <thead>
+                  <tr>
+                    {TABLE_HEADERS_CONFIG_AVAILABLE.map(header => (
+                      <th key={header.id} className={`th-${header.id}`}>{header.label}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {availablePeople.length > 0 ? (
+                    availablePeople.map(person => (
+                      <tr key={person.id}>
+                        <td className="td-student">
+                          <div className="student-info-cell">
+                            <Image 
+                              src={person.avatar} 
+                              alt={person.name} 
+                              width={32}
+                              height={32}
+                              className="student-avatar-img"
+                            />
+                            <div className="student-details">
+                              <div className="student-name-table">{person.name}</div>
+                              <div className="student-id-table">ID: {person.id}</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="td-role">{person.role}</td>
+                        <td className="td-select">
+                          <button className="action-button add-person-btn" onClick={() => handleAddPerson(person.id)} title="Add Person">Add</button>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr><td colSpan={TABLE_HEADERS_CONFIG_AVAILABLE.length} className="no-data-message">{searchTerm ? 'No available people match your search.' : 'No available people for this filter.'}</td></tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Selected People Table */}
+          <div className="table-section selected-people-section">
+            <div className="people-table-container people-table-container-selected">
+              <table>
+                <thead>
+                  <tr>
+                    {TABLE_HEADERS_CONFIG_SELECTED.map(header => (
+                      <th key={header.id} className={`th-${header.id}`}>{header.label}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {selectedPeopleData.length > 0 ? (
+                    selectedPeopleData.map(person => (
+                      <tr key={person.id}>
+                        <td className="td-student">
+                          <div className="student-info-cell">
+                            <Image 
+                              src={person.avatar} 
+                              alt={person.name} 
+                              width={32}
+                              height={32}
+                              className="student-avatar-img"
+                            />
+                            <div className="student-details">
+                              <div className="student-name-table">{person.name}</div>
+                              <div className="student-id-table">ID: {person.id}</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="td-role">{person.role}</td>
+                        <td className="td-action">
+                          <button className="action-button remove-person-btn" onClick={() => handleRemovePerson(person.id)} title="Remove Person">Remove</button>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr><td colSpan={TABLE_HEADERS_CONFIG_SELECTED.length} className="no-data-message">No people selected yet.</td></tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Dialog Actions */}
+        <div className="dialog-actions detail-dialog-actions">
+          <button className="delete-group-button" onClick={handleDeleteClick}>
+            <DeleteIconSvg /> Delete Group
+          </button>
+          <div className="spacer"></div>
+          <button className="create-button" onClick={handleSaveChanges}>Save Changes</button>
+          <button className="cancel-button" onClick={onClose}>Cancel</button>
+        </div>
+      </div>
+
+      {/* Delete Confirmation Dialog - Styled like the image */}
+      {showDeleteConfirm && (
+        <div className="confirm-delete-overlay">
+          <div className="confirm-delete-modal">
+            <h3>Confirm Deletion</h3>
+            <p className="confirm-message">
+              Are you sure you want to delete the group:
+              <span className="group-name-to-delete">{groupName || groupData.title}?</span>
+            </p>
+            <p className="confirm-warning">This action cannot be undone.</p>
+            <div className="confirm-actions">
+              <button className="confirm-cancel-btn" onClick={handleCancelDelete}>Cancel</button>
+              <button className="confirm-delete-btn" onClick={handleConfirmDelete}>Delete Group</button>
+            </div>
+          </div>
+        </div>
+      )}
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     </div>
   );
 } 

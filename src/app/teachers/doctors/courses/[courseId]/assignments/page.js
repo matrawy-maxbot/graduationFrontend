@@ -2,7 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+<<<<<<< HEAD
 import { usePathname } from 'next/navigation';
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 import './styles/page.css';
 import { 
   formatTimeRemaining, 
@@ -17,6 +20,7 @@ import {
   isDeadlineApproaching
 } from './components/script';
 
+<<<<<<< HEAD
 // استيراد خدمات API
 import {
   getAssignmentsByCourse,
@@ -31,6 +35,9 @@ import {
 
 export default function Assignments() {
   const pathname = usePathname();
+=======
+export default function Assignments() {
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   const [selectedAssignment, setSelectedAssignment] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [fileError, setFileError] = useState(null);
@@ -51,7 +58,10 @@ export default function Assignments() {
     title: '',
     course: '',
     courseId: '',
+<<<<<<< HEAD
     courseCode: '',
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     description: '',
     startTime: '',
     endTime: '',
@@ -60,12 +70,16 @@ export default function Assignments() {
   });
 
   const [blockMessage, setBlockMessage] = useState({ isOpen: false, message: '', type: 'info' }); // type: info, success, error, warning
+<<<<<<< HEAD
   const [courseDetails, setCourseDetails] = useState(null); // تخزين تفاصيل المقرر الدراسي
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 
   useEffect(() => {
     setIsMounted(true);
     setCurrentTime(new Date());
     
+<<<<<<< HEAD
     // استخراج معرف المقرر من الرابط
     const pathParts = pathname.split('/');
     const courseIdFromPath = pathParts[pathParts.indexOf('courses') + 1];
@@ -100,14 +114,21 @@ export default function Assignments() {
     
     fetchAssignments();
     
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     const intervalId = setInterval(() => {
       setCurrentTime(new Date());
     }, 60000);
     
     return () => clearInterval(intervalId);
+<<<<<<< HEAD
   }, [pathname]);
 
   // البيانات الافتراضية للاستخدام عند فشل الاتصال بالخادم
+=======
+  }, []);
+
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   const assignments = [
     {
       id: 1,
@@ -146,7 +167,65 @@ export default function Assignments() {
         }
       ]
     },
+<<<<<<< HEAD
     // ... باقي البيانات الافتراضية
+=======
+    {
+      id: 2,
+      title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit',
+      course: 'Software Engineering',
+      instructor: 'DR. Ahmed Emad',
+      status: 'submitted',
+      startTime: '2024-08-15T10:00:00.000Z',
+      endTime: '2024-08-30T23:59:59.000Z',
+      createdAt: '2024-08-10T09:15:00.000Z',
+      description: 'Normalize the provided database schema to 3NF and provide justification for each step.',
+      progress: 0,
+      attachedFiles: [],
+      totalPoints: 50,
+      submissions: [
+        { studentId: 101, studentName: 'Alice Smith', avatarUrl: 'https://i.pravatar.cc/150?img=1', displayId: '12345678', status: 'submitted', submittedAt: '2024-08-25T11:00:00.000Z', pointsAwarded: null, feedback: null },
+        { studentId: 102, studentName: 'Bob Johnson', avatarUrl: 'https://i.pravatar.cc/150?img=2', displayId: '87654321', status: 'submitted', submittedAt: '2024-08-26T15:30:00.000Z', pointsAwarded: null, feedback: null },
+      ]
+    },
+    {
+      id: 3,
+      title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit',
+      course: 'Web Development',
+      instructor: 'DR. Fatima Ali',
+      status: 'completed',
+      startTime: '2024-06-10T10:00:00.000Z',
+      endTime: '2024-06-25T23:59:59.000Z',
+      createdAt: '2024-06-05T11:45:00.000Z',
+      description: 'Develop a responsive web application using React for task management.',
+      progress: 100,
+      finished: true,
+      attachedFiles: [
+        { id: 'f3', name: 'final_rubric.pdf', url: '/files/rubric_final.pdf', size: '120 KB', isNew: false }
+      ],
+      totalPoints: 100,
+      submissions: [
+        { studentId: 101, studentName: 'Alice Smith', avatarUrl: 'https://i.pravatar.cc/150?img=1', displayId: '12345678', status: 'completed', submittedAt: '2024-06-25T11:00:00.000Z', pointsAwarded: 90, feedback: 'Well done.' },
+        { studentId: 102, studentName: 'Bob Johnson', avatarUrl: 'https://i.pravatar.cc/150?img=2', displayId: '87654321', status: 'completed', submittedAt: '2024-06-26T15:30:00.000Z', pointsAwarded: 75, feedback: 'Met requirements.' },
+      ]
+    },
+    {
+      id: 4,
+      title: 'Another Assignment Example',
+      course: 'Web Development',
+      instructor: 'DR. Fatima Ali',
+      status: 'missing',
+      startTime: '2024-09-01T10:00:00.000Z',
+      endTime: '2024-09-15T23:59:59.000Z',
+      createdAt: '2024-08-20T11:45:00.000Z',
+      description: 'Build a simple API using Node.js and Express.',
+      progress: 0,
+      finished: false,
+      attachedFiles: [],
+      totalPoints: 20,
+      submissions: []
+    }
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   ];
 
   useEffect(() => {
@@ -178,14 +257,21 @@ export default function Assignments() {
     setAssignmentToDelete(null);
     setIsCreatingAssignment(false);
     setNewAssignmentData({
+<<<<<<< HEAD
         title: '', course: '', courseId: '', courseCode: '', description: '',
+=======
+        title: '', course: '', courseId: '', description: '',
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
         startTime: '', endTime: '', totalPoints: '', attachedFiles: []
     });
     closeBlockMessage();
   }
 
   const handleAssignmentClick = (assignment) => {
+<<<<<<< HEAD
     console.log('Selected assignment details:', assignment);
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     setSelectedAssignment(assignment);
     setIsDialogOpen(true);
     setIsEditing(false);
@@ -196,7 +282,12 @@ export default function Assignments() {
 
   const handleEditClick = () => {
     setIsEditing(true);
+<<<<<<< HEAD
     setEditedAssignment({...selectedAssignment});
+=======
+    setEditedAssignment(JSON.parse(JSON.stringify(selectedAssignment)));
+    setFileError(null);
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   const handleEditChange = (e) => {
@@ -274,6 +365,7 @@ export default function Assignments() {
     }));
   };
 
+<<<<<<< HEAD
   const handleSaveChanges = async () => {
     if (!editedAssignment) return;
     
@@ -327,6 +419,25 @@ export default function Assignments() {
       console.error("Failed to update assignment:", error);
       showBlockMessage(error.message || 'فشل في تحديث المهمة', 'error');
     }
+=======
+  const handleSaveChanges = () => {
+    console.log('Saving changes:', editedAssignment);
+    const dataToSend = {
+        ...editedAssignment,
+        filesToUpload: editedAssignment.attachedFiles.filter(f => f.isNew),
+        finalAttachedFiles: editedAssignment.attachedFiles.map(f => ({ id: f.id, name: f.name, url: f.url }))
+    };
+    console.log("Data to send to API:", dataToSend);
+
+    const finalSavedAssignment = { 
+        ...editedAssignment, 
+        attachedFiles: editedAssignment.attachedFiles.map(({ fileObject, isNew, ...rest }) => rest) 
+    };
+    setSelectedAssignment(finalSavedAssignment); 
+    
+    setIsEditing(false); 
+    setViewMode('details');
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   const handleCancelEdit = () => {
@@ -367,6 +478,7 @@ export default function Assignments() {
     return calculateTimeElapsed(new Date(assignment.startTime), new Date(assignment.endTime), currentTime);
   };
 
+<<<<<<< HEAD
   // Usar el nombre del curso desde courseDetails cuando sea posible
   const courseName = courseDetails && courseDetails.coursename ? courseDetails.coursename : "Unknown Course";
   console.log('Course name used for grouping:', courseName);
@@ -375,6 +487,10 @@ export default function Assignments() {
   const groupedAssignments = allAssignments.reduce((acc, assignment) => {
     // Usar el nombre real del curso en lugar del de cada asignación
     const course = courseName;
+=======
+  const groupedAssignments = allAssignments.reduce((acc, assignment) => {
+    const course = assignment.course;
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
     if (!acc[course]) {
       acc[course] = [];
     }
@@ -382,8 +498,11 @@ export default function Assignments() {
     return acc;
   }, {});
   
+<<<<<<< HEAD
   console.log('Grouped assignments:', groupedAssignments);
   
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   const submissionCounts = selectedAssignment ? countSubmissionsByStatus(selectedAssignment.submissions || []) : {};
   const totalSubmissions = selectedAssignment ? (selectedAssignment.submissions || []).length : 0;
 
@@ -424,6 +543,7 @@ export default function Assignments() {
     }));
   };
   
+<<<<<<< HEAD
   const handleSaveGrade = async () => {
     if (!viewingSubmissionDetails || !selectedAssignment) return;
     
@@ -485,6 +605,45 @@ export default function Assignments() {
       console.error("Failed to save grade:", error);
       showBlockMessage(error.message || 'فشل في حفظ التقييم', 'error');
     }
+=======
+  const handleSaveGrade = () => {
+    if (!viewingSubmissionDetails || !selectedAssignment) return;
+
+    const points = currentGradeData.pointsAwarded;
+    if (points === '' || typeof points !== 'number' || points < 0 || (selectedAssignment.totalPoints !== null && points > selectedAssignment.totalPoints)) {
+        showBlockMessage(`Please enter valid points between 0 and ${selectedAssignment.totalPoints ?? 'N/A'}.`, 'error');
+        return;
+    }
+
+    const submissionIndex = selectedAssignment.submissions.findIndex(
+        sub => sub.studentId === viewingSubmissionDetails.studentId
+    );
+
+    if (submissionIndex === -1) {
+        console.error("Could not find submission to update.");
+        showBlockMessage("An error occurred. Could not save grade.", "error");
+        return;
+    }
+
+    const updatedSubmissions = [...selectedAssignment.submissions];
+    updatedSubmissions[submissionIndex] = {
+        ...updatedSubmissions[submissionIndex],
+        pointsAwarded: currentGradeData.pointsAwarded,
+        feedback: currentGradeData.feedback,
+        status: 'completed'
+    };
+
+    setSelectedAssignment(prev => ({
+        ...prev,
+        submissions: updatedSubmissions
+    }));
+
+    console.log('Grade saved for:', viewingSubmissionDetails.studentName, currentGradeData);
+    
+    setViewingSubmissionDetails(null);
+    setCurrentGradeData({ pointsAwarded: '', feedback: '' });
+    setViewMode('submissions');
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   const handleCancelGrade = () => {
@@ -498,6 +657,7 @@ export default function Assignments() {
     setShowDeleteConfirmModal(true);
   };
 
+<<<<<<< HEAD
   const confirmActualDelete = async () => {
     if (!assignmentToDelete) return;
     
@@ -515,6 +675,18 @@ export default function Assignments() {
       console.error("Failed to delete assignment:", error);
       showBlockMessage(error.message || 'فشل في حذف المهمة', 'error');
     }
+=======
+  const confirmActualDelete = () => {
+    if (!assignmentToDelete) return;
+
+    console.log('Deleting assignment:', assignmentToDelete.id);
+    setAllAssignments(prevAssignments => prevAssignments.filter(a => a.id !== assignmentToDelete.id));
+    showBlockMessage(`Assignment "${assignmentToDelete.title}" has been deleted successfully.`, 'success');
+    
+    setShowDeleteConfirmModal(false);
+    setAssignmentToDelete(null);
+    closeDialog();
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
 
   const cancelDelete = () => {
@@ -529,6 +701,7 @@ export default function Assignments() {
     closeDialog();
     setIsCreatingAssignment(true);
 
+<<<<<<< HEAD
     // استخراج معرف المقرر من الرابط
     const pathParts = pathname.split('/');
     const courseIdFromPath = pathParts[pathParts.indexOf('courses') + 1];
@@ -542,6 +715,18 @@ export default function Assignments() {
         course: courseName,
         courseId: courseIdFromPath,
         courseCode: courseCode,
+=======
+    // Placeholder for fetching course name based on URL or context
+    // For now, using a hardcoded placeholder. 
+    // In a real app, you would get courseId from URL params and fetch course name.
+    const currentCourseName = "Software Engineering"; // Changed to direct name
+    const currentCourseId = "CSE451"; // Placeholder for Course ID
+
+    setNewAssignmentData({
+        title: '',
+        course: currentCourseName, 
+        courseId: currentCourseId, // Set the determined course ID
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
         description: '',
         startTime: '',
         endTime: '',
@@ -553,8 +738,15 @@ export default function Assignments() {
 
   const handleCancelCreateAssignment = () => {
     setIsCreatingAssignment(false);
+<<<<<<< HEAD
     setNewAssignmentData({
         title: '', course: '', courseId: '', courseCode: '', description: '',
+=======
+    // setNewAssignmentData is reset in closeDialog now, or could be here too.
+    // For safety, ensure course is also reset if dialog is cancelled without saving.
+    setNewAssignmentData({
+        title: '', course: '', courseId: '', description: '', // Reset courseId
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
         startTime: '', endTime: '', totalPoints: '', attachedFiles: []
     });
     setFileError(null);
@@ -622,6 +814,7 @@ export default function Assignments() {
     }));
   };
 
+<<<<<<< HEAD
   const handleSaveNewAssignment = async () => {
     // التحقق من صحة البيانات
     if (!newAssignmentData.title.trim()) {
@@ -682,6 +875,53 @@ export default function Assignments() {
       console.error('Failed to create assignment:', error);
       showBlockMessage(error.message || 'فشل في إنشاء المهمة', 'error');
     }
+=======
+  const handleSaveNewAssignment = () => {
+    // Basic Validation
+    if (!newAssignmentData.title.trim()) {
+        showBlockMessage('Assignment title is required.', 'error'); return;
+    }
+    // No longer need to validate course name as it's not user-input in this dialog
+    /* if (!newAssignmentData.course.trim()) {
+        showBlockMessage('Course name is required.', 'error'); return;
+    } */
+    if (newAssignmentData.totalPoints === '' || isNaN(parseInt(newAssignmentData.totalPoints)) || parseInt(newAssignmentData.totalPoints) <= 0) {
+        showBlockMessage('Total points must be a positive number.', 'error'); return;
+    }
+    if (!newAssignmentData.startTime) {
+        showBlockMessage('Start time is required.', 'error'); return;
+    }
+    if (!newAssignmentData.endTime) {
+        showBlockMessage('End time is required.', 'error'); return;
+    }
+    if (new Date(newAssignmentData.startTime) >= new Date(newAssignmentData.endTime)) {
+        showBlockMessage('End time must be after start time.', 'error'); return;
+    }
+
+    const newId = Date.now();
+    const assignmentToAdd = {
+        id: newId,
+        title: newAssignmentData.title,
+        course: newAssignmentData.course,
+        instructor: 'DR. Current User',
+        status: 'active',
+        startTime: newAssignmentData.startTime,
+        endTime: newAssignmentData.endTime,
+        createdAt: new Date().toISOString(),
+        description: newAssignmentData.description,
+        progress: 0,
+        totalPoints: parseInt(newAssignmentData.totalPoints),
+        attachedFiles: newAssignmentData.attachedFiles.map(({ fileObject, isNew, ...rest }) => rest),
+        submissions: []
+    };
+
+    console.log('New assignment data to save:', assignmentToAdd);
+    console.log('Files to upload for new assignment:', newAssignmentData.attachedFiles.filter(f => f.isNew));
+
+    setAllAssignments(prevAssignments => [assignmentToAdd, ...prevAssignments]);
+    showBlockMessage('New assignment created successfully!', 'success');
+    handleCancelCreateAssignment();
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
   };
   // --- End Create New Assignment Functions ---
 
@@ -710,8 +950,12 @@ export default function Assignments() {
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.34 42">
                     <path d="M5.35,33.53h28.61c.09,0,.17-.01.25-.03,0,0,.01,0,.02,0,.61,0,1.11-.5,1.11-1.11V1.11c0-.61-.5-1.11-1.11-1.11H5.35C2.4,0,0,2.4,0,5.34c0,.04,0,.08.01.12,0,2.72-.04,27.72,0,31.01,0,.06,0,.13,0,.19,0,2.83,2.22,5.15,5.01,5.33.06,0,.11.02.17.02h29.05c.61,0,1.11-.5,1.11-1.11v-4.17c0-.61-.5-1.11-1.11-1.11s-1.11.5-1.11,1.11v3.06H5.35c-1.68,0-3.06-1.34-3.12-3,0-.03,0-.06,0-.09,0-.05,0-.12,0-.22.1-1.64,1.46-2.94,3.12-2.94h0ZM6.1,5.34c0-.61.5-1.11,1.11-1.11s1.11.5,1.11,1.11v22.48c0,.61-.5,1.11-1.11,1.11s-1.11-.5-1.11-1.11V5.34h0Z"/>
                </svg>
+<<<<<<< HEAD
                 <span>Course :</span> {courseDetails && courseDetails.coursename ? courseDetails.coursename : course}
                 {courseDetails && courseDetails.coursecode && <span className="course-code">({courseDetails.coursecode})</span>}
+=======
+                <span>Course :</span> {course}
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
           </h2>
           
               {courseAssignments.map((assignment) => (
@@ -788,10 +1032,14 @@ export default function Assignments() {
                   {viewMode === 'details' && (
                       <>
                           <div className="assignment-info-section">
+<<<<<<< HEAD
                               <div className="info-item">
                                 <h3>Course:</h3>
                                 <p>{selectedAssignment.course} {selectedAssignment.courseCode ? `(${selectedAssignment.courseCode})` : ''}</p>
                               </div>
+=======
+                              <div className="info-item"><h3>Course:</h3><p>{selectedAssignment.course}</p></div>
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
                               <div className="info-item"><h3>Created by:</h3><p>{selectedAssignment.instructor}</p></div>
                               <div className="info-item"><h3>Created on:</h3><p>{isMounted ? formatDate(selectedAssignment.createdAt) : 'Loading...'}</p></div>
                               {!isEditing && (
@@ -1117,9 +1365,13 @@ export default function Assignments() {
                         {newAssignmentData.course && (
                             <span className="dialog-course-subtitle">
                                 {newAssignmentData.course}
+<<<<<<< HEAD
                                 {courseDetails && courseDetails.coursecode && (
                                     <span className="course-code">({courseDetails.coursecode})</span>
                                 )}
+=======
+                                {newAssignmentData.courseId && <span className="course-id-display"> ({newAssignmentData.courseId})</span>}
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
                             </span>
                         )}
                     </div>

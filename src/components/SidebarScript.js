@@ -1,7 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
+<<<<<<< HEAD
 import { createAnnouncementDialog } from '../app/announcements/script.js';
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
 
 export default function SidebarScript() {
      console.log("SidebarScript");
@@ -100,11 +103,14 @@ export default function SidebarScript() {
           if (!isActive) {
             newButton.setAttribute('data-active', 'true');
           }
+<<<<<<< HEAD
 
           // If this is the announcements button, open the dialog
           if (newButton.id === 'announcements-menu-button') {
             createAnnouncementDialog();
           }
+=======
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
         });
       }
     });
@@ -284,7 +290,11 @@ export default function SidebarScript() {
       // إضافة مستمع حدث مباشرة على العنصر الأصلي
       headerProfile.addEventListener('click', (e) => {
           console.log("headerProfile");
+<<<<<<< HEAD
         // e.stopPropagation(); don't stop the propagation of the event to avoid the dropdown buttons to be clicked
+=======
+        e.stopPropagation();
+>>>>>>> 4b9036a50a2baee3dd8b036beda4580b983bed59
         headerDropdown.classList.toggle('show');
       });
     }
